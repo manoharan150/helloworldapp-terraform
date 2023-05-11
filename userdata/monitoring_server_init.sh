@@ -18,7 +18,6 @@ yum install -y grafana
 systemctl enable grafana-server
 systemctl start grafana-server
 systemctl status grafana-server
-firewall-cmd --zone=public --add-port=3000/tcp --permanent
 
 #install Prometheus
 mkdir /etc/prometheus
@@ -73,5 +72,6 @@ systemctl daemon-reload
 systemctl start prometheus
 systemctl status prometheus
 
+firewall-cmd --zone=public --add-port=3000/tcp --permanent
 firewall-cmd --zone=public --add-port=9090/tcp --permanent
 systemctl reload firewalld
